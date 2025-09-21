@@ -19,8 +19,10 @@ class Backup extends Page implements Forms\Contracts\HasForms
 {
     use Forms\Concerns\InteractsWithForms;
 
-    // protected string $view = 'filament.pages.backup';
+    protected string $view = 'filament.pages.backup';
     protected static ?string $navigationLabel = 'Бэкап контента';
+
+    protected static ?int $navigationSort = 100;
 
     // 🔹 Livewire property для FileUpload
     public $backupFile;
@@ -41,14 +43,14 @@ class Backup extends Page implements Forms\Contracts\HasForms
     {
         return [
             Actions\Action::make('export')
-                ->label('Экспорт')
+                ->label('Экспорт в backup')
                 ->color('success')
                 ->icon('heroicon-o-arrow-down-tray')
                 ->action('exportData')
                 ->requiresConfirmation(),
 
             Actions\Action::make('import')
-                ->label('Импорт')
+                ->label('Импорт backup')
                 ->color('danger')
                 ->icon('heroicon-o-arrow-up-tray')
                 ->form([
@@ -65,7 +67,7 @@ class Backup extends Page implements Forms\Contracts\HasForms
                 ->action(fn(array $data) => $this->importData($data)),
 
             Actions\Action::make('import_articles')
-                ->label('Импорт Статей')
+                ->label('Импорт Статей из Вордпресс')
                 ->color('danger')
                 ->icon('heroicon-o-arrow-up-tray')
                 ->form([

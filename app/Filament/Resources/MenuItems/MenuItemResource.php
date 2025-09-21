@@ -33,6 +33,8 @@ class MenuItemResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'MenuItem';
 
+    protected static ?int $navigationSort = 60;
+
     // protected static ?string $navigationGroup = 'Контент';
 
     public static function form(Schema $form): Schema

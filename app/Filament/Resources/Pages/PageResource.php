@@ -32,6 +32,7 @@ class PageResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
+    protected static ?int $navigationSort = 20;
     // protected static ?string $recordTitleAttribute = 'Admin';
 
     public static function form(Schema $form): Schema
